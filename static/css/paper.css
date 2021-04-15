@@ -234,7 +234,6 @@ img {
   margin-top: 14px;
   margin-bottom: 14px;
   font-size: 16px;
-  -webkit-line-clamp: 3;
 }
 .first-entry .entry-footer {
   font-size: 14px;
@@ -266,7 +265,6 @@ img {
   overflow: hidden;
   display: -webkit-box;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
 }
 .entry-footer {
   color: var(--secondary);
@@ -411,6 +409,7 @@ img {
   margin-left: 0;
   margin-right: 0;
   margin-bottom: 0;
+  margin-top: 0;
 }
 /* table */
 .post-content .highlighttable {

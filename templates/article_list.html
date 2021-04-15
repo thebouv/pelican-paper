@@ -2,7 +2,7 @@
     {% for article in articles_page.object_list %}
     <article class="post-entry">
         <header class="entry-header">
-            <h2>{{ article.title }}</h2>
+            <h2><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></h2>
         </header>
         <section class="entry-content">
             <p>{{ article.summary }}</p>
@@ -22,7 +22,7 @@
             </ul>
             {% endif %}
         </footer>
-        <a class="entry-link" href="{{ SITEURL }}/{{ article.url }}"></a>
+        </a>
     </article>
     {% endfor %}
     {% if articles_page.has_other_pages() %}
