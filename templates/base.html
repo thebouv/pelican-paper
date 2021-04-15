@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="{{ DEFAULT_LANG }}">
+  <head>
+    <title>{% block title %}{{ SITENAME }}{% endblock title %}</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="{{ SITEDESCRIPTION }}">
+    <meta name="author" content="{{ AUTHOR }}">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:image" content="{{ SITEURL }}/images/{{ LOGO }}">
+    <meta name="twitter:description" content="{{ SITEDESCRIPTION }}">
+    <meta name="twitter:creator" content="{{ TWITTER_USERNAME }}">
+    <meta property="og:url" content="{{ SITEURL }}"/>
+    <meta property="og:title" content="{{ SITENAME }}" />
+    <meta property="og:description" content="{{ SITEDESCRIPTION }}" />
+    <!-- Styles -->
+    <link rel="stylesheet" type="text/css" href="{{ SITEURL }}/theme/css/paper.css" />
+    <!-- Favicons -->
+    {% if APPLE_ICON %}
+    <link rel="apple-touch-icon" href="{{ SITEURL }}/images/apple-touch-icon.png">
+    {% endif %}
+    {% if FAVICON %}
+    <link rel="icon" type="image/png" href="{{ SITEURL }}/images/{{ FAVICON }}">
+    {% endif %}
+    <!-- Script -->
+    <script>
+      function setTheme() {
+        if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          document.body.classList.add('dark');
+          return;
+        }
+      }
+    </script>
+  </head>
+  <body class="{% if page %}single{% else %}list{% if page_name == 'index' %} home{% endif %}{%endif %}">
+    <script>
+      setTheme();
+    </script>
+    <header class="header">
+      <nav class="nav">
+        <h1 class="logo"><a href="/">{{ SITENAME }}</a></h1>
+        {% if DISPLAY_PAGES_ON_MENU %}
+        <ul class="menu">
+          {% for page in pages %}
+          <li>
+            <a href="{{ SITEURL }}/{{ page.url }}">{{ page.slug }}</a>
+          </li>
+          {% endfor %}
+        </ul>
+        {% endif %}
+      </nav>
+    </header>
+    <main class="main">
+    {% block content %}
+    {% endblock %}
+    </main>
+  <footer class="footer">
+    <span>&copy; {{ CURRENT_YEAR }} {{ AUTHOR }}</span>
+  </footer>
+  </body>
+</html>
