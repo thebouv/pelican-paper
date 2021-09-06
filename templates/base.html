@@ -24,6 +24,8 @@
     {% if FAVICON %}
     <link rel="icon" type="image/jpg" href="{{ SITEURL }}/images/{{ FAVICON }}">
     {% endif %}
+    <link rel="alternate" type="application/atom+xml" href="{{ FEED_DOMAIN }}/{{ FEED_ATOM }}" title="Atom Feed">
+    <link rel="alternate" type="application/atom+xml" href="{{ FEED_DOMAIN }}/{{ FEED_ALL_ATOM }}" title="Full Atom Feed">
     <!-- Script -->
     <script>
       function setTheme() {
@@ -33,6 +35,8 @@
         }
       }
     </script>
+    {% block extrahead %}
+    {% endblock %}
   </head>
   <body class="{% if page %}single{% else %}list{% if page_name == 'index' %} home{% endif %}{%endif %}">
     <script>
